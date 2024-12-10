@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      # Consumer configuration
+      group-id: user-events-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        # Reduce connection timeout
+        connections.max.idle.ms: 10000
+        # Max poll interval to prevent consumer from being kicked out of the group
+        max.poll.interval.ms: 300000
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.example.kafkaconsumer: DEBUG
+    org.springframework.kafka: INFO
+    org.apache.kafka: WARN
