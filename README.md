@@ -34,7 +34,7 @@ Consume messages from a Kafka topic starting from the beginning.
 docker exec -it hello-kafka-kafka-1 kafka-console-consumer --topic <topic_name> --bootstrap-server localhost:29092 --from-beginning
 ```
 
-using `max_images`
+using `max-messages`
 ```bash
 docker exec -it hello-kafka-kafka-1 kafka-console-consumer --topic user_created --bootstrap-server localhost:29092 --from-beginning --max-messages <number_of_messages>
 ```
