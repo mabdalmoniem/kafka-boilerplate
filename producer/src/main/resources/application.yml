@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries : 1
+      properties:
+        connections.max.idle.ms: 10000
+        request.timeout.ms: 10000
+        max.block.ms: 5000
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.example.kafka_producer: DEBUG
+    org.springframework.kafka: INFO
+    org.apache.kafka: WARN
